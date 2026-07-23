@@ -78,11 +78,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
 
-  const activityData = await fetchActivityDetail(slug);
+  // activity aur attraction dono parallel me fetch — sequential karne se
+  // do round-trips lag jaate the jab ki hamesha dono me se ek hi chahiye hota hai
+  const [activityData, attractionDataForMeta] = await Promise.all([
+    fetchActivityDetail(slug),
+    fetchTouristAttractionDetail(slug),
+  ]);
   const data =
-    activityData?.type === "activity"
-      ? activityData
-      : await fetchTouristAttractionDetail(slug);
+    activityData?.type === "activity" ? activityData : attractionDataForMeta;
 
   if (!data) return {};
 
@@ -123,7 +126,10 @@ export default async function DetailPage({ params }: Props) {
     }
   }
 
-  const activityData = await fetchActivityDetail(slug);
+  const [activityData, attractionData] = await Promise.all([
+    fetchActivityDetail(slug),
+    fetchTouristAttractionDetail(slug),
+  ]);
 
   if (activityData?.type === "activity") {
     return (
@@ -136,7 +142,6 @@ export default async function DetailPage({ params }: Props) {
     );
   }
 
-  const attractionData = await fetchTouristAttractionDetail(slug);
   if (!attractionData) notFound();
 
   return (

@@ -21,42 +21,54 @@ export default function ReadMoreHtml({
   const contentRef = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(false);
   const [overflowing, setOverflowing] = useState(false);
-  const [maxPx, setMaxPx] = useState<number | null>(null);
 
+  // expanded ko ref me bhi rakha hai — expanded true hone par content unclamped
+  // ho jaata hai (scrollHeight === clientHeight), toh us waqt measure() ko skip
+  // karna hai, warna woh galti se "overflow nahi hai" samajh ke Show Less button
+  // hi hata deta tha.
+  const expandedRef = useRef(expanded);
+  expandedRef.current = expanded;
+
+  // -webkit-line-clamp se clamp karte hain (JS se lineHeight px calculate karke
+  // maxHeight set karna fragile tha — font load/metrics mismatch pe line ke
+  // beech mein hi cut ho jaata tha). Line-clamp hamesha clean line boundary pe cut karta hai.
   useLayoutEffect(() => {
     const el = contentRef.current;
     if (!el) return;
 
-    const prevMaxHeight = el.style.maxHeight;
-    const prevOverflow = el.style.overflow;
-    el.style.maxHeight = "none";
-    el.style.overflow = "visible";
+    const measure = () => {
+      if (expandedRef.current) return;
+      setOverflowing(el.scrollHeight > el.clientHeight + 1);
+    };
+    measure();
 
-    const computed = getComputedStyle(el);
-    let lineHeight = parseFloat(computed.lineHeight);
-    if (Number.isNaN(lineHeight)) {
-      lineHeight = parseFloat(computed.fontSize) * 1.6;
-    }
-    const clampPx = Math.round(lineHeight * lines);
-    const naturalHeight = el.scrollHeight;
+    // Webfont load ke baad reflow hone pe dobara measure karo
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    document.fonts?.ready?.then(measure).catch(() => {});
 
-    el.style.maxHeight = prevMaxHeight;
-    el.style.overflow = prevOverflow;
-
-    setMaxPx(clampPx);
-    setOverflowing(naturalHeight > clampPx + 1);
+    return () => ro.disconnect();
   }, [html, lines]);
 
   if (!html) return null;
 
-  const collapsed = !expanded && maxPx !== null;
+  const collapsed = !expanded;
 
   return (
     <div className={`${styles.wrapper} ${className}`} style={style}>
       <div
         ref={contentRef}
         className={styles.content}
-        style={collapsed ? { maxHeight: maxPx as number, overflow: "hidden" } : undefined}
+        style={
+          collapsed
+            ? {
+                display: "-webkit-box",
+                WebkitLineClamp: lines,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+              }
+            : undefined
+        }
       >
         {/* cms-content: CMS tags (p/ul/strong/img...) ka site-wide unified styling */}
         <div className="cms-content" dangerouslySetInnerHTML={{ __html: html }} />
