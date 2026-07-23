@@ -1,0 +1,192 @@
+/* ── Banner ── */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bannerImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.bannerOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.42);
+}
+
+.bannerContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.bannerTitle {
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+
+.bannerSub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.85);
+  margin: 0;
+  font-style: italic;
+}
+
+/* ── Main layout ── */
+.layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px 48px 72px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  align-items: start;
+}
+
+.leftCol {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.rightCol {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+.divider { border: none; border-top: 1px solid #e8e3d8; margin: 0; }
+
+/* Breadcrumb + H1 + intro tight together */
+.introBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.h1 {
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* ── Popular packages full-width ── */
+.popularWrap {
+  background: #f9f7f3;
+  width: 100%;
+  padding: 40px 0;
+}
+
+.popularInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── Section heading (shared across all sections) ── */
+.sectionHeading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 22px;
+}
+
+/* ── Top Things To Do ── */
+.thingsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.thingCard {
+  display: flex;
+  gap: 18px;
+  padding: 22px 0;
+  border-bottom: 1px dashed #c8c2b8;
+}
+
+.thingCard:first-child {
+  border-top: 1px dashed #c8c2b8;
+}
+
+.thingArrow {
+  flex-shrink: 0;
+  width: 28px;
+  padding-top: 2px;
+  color: #e8b84b;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.thingBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.thingTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.thingDesc {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.7;
+}
+
+.thingMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.thingMetaItem {
+  font-size: 13px;
+  color: #333;
+}
+
+.thingMetaLabel {
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .layout { grid-template-columns: 1fr 300px; padding: 40px 32px 56px; gap: 32px; }
+  .popularInner { padding: 0 32px; }
+}
+
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr; padding: 32px 24px 48px; }
+  .rightCol { position: static; max-width: 520px; }
+  .popularInner { padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+  .banner { height: 260px; }
+  .layout { padding: 24px 20px 40px; gap: 24px; }
+  .popularInner { padding: 0 20px; }
+}

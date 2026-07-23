@@ -1,0 +1,212 @@
+/* ── Car Rental Section ── */
+.section {
+  width: 100%;
+  background-color: #f4f1ea; /* Light beige matching screenshot */
+  padding: 80px 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.heading {
+  font-size: 36px;
+  font-weight: 500;
+  color: #111;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* ── Tabs ── */
+.tabsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 50px;
+  border-bottom: 2px solid transparent;
+}
+
+.tab {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  background: none;
+  border: none;
+  padding: 10px 0;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tab:hover {
+  color: var(--color-green-dark);
+}
+
+.activeTab {
+  color: var(--color-green-dark);
+}
+
+.activeTab::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Align with bottom */
+  left: -10%;
+  width: 120%;
+  height: 2px;
+  background-color: var(--color-green-dark); /* Dark green underline */
+}
+
+/* ── Carousel / Swiper ── */
+.swiperContainer {
+  padding: 20px 0 !important; /* Space for box shadow */
+}
+
+/* ── Car Card ── */
+.card {
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 12px; /* White space around everything */
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Increased height further */
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.cardContent {
+  padding: 16px 4px 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.carName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+  margin: 0 0 12px;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.features {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.featureIcon {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.bookBtn {
+  background-color: #f5b041; /* Golden yellow */
+  color: #111;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.bookBtn:hover {
+  background-color: #e59f2f;
+}
+
+/* ── Pagination Dots Override ── */
+:global(.swiper-pagination) {
+  position: relative !important;
+  margin-top: 40px !important;
+}
+
+:global(.swiper-pagination-bullet) {
+  width: 8px !important;
+  height: 8px !important;
+  background-color: #4b5563 !important;
+  opacity: 1 !important;
+  margin: 0 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  width: 20px !important;
+  height: 20px !important;
+  background-color: transparent !important;
+  border: 2px solid #111 !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  vertical-align: middle !important;
+}
+
+:global(.swiper-pagination-bullet-active)::after {
+  content: "" !important;
+  width: 8px !important;
+  height: 8px !important;
+  background-color: #111 !important;
+  border-radius: 50% !important;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+  .tabsContainer {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: var(--heading-section);
+  }
+  
+  .imageWrapper {
+    height: 240px; /* Adjusted height for mobile screens */
+  }
+  
+  .features {
+    gap: 10px;
+  }
+  
+  .feature {
+    font-size: 12px;
+  }
+}

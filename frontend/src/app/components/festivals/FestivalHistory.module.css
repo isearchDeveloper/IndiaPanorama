@@ -1,0 +1,19 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heading {
+  font-size: var(--heading-sub);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.text {
+  font-size: 15px;
+  color: var(--color-text-secondary, #555);
+  line-height: 1.85;
+  margin: 0;
+}

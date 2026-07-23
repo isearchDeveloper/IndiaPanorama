@@ -1,0 +1,115 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  max-height: 400px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 56, 2, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  color: #fff;
+  padding: 80px 60px;
+}
+
+.content div {
+  margin-bottom: 16px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.content p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #fff;
+  font-weight: 300;
+}
+
+@media (max-width: 1200px) {
+  .content {
+    padding: 60px 48px;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero {
+    min-height: 400px;
+    max-height: 400px;
+  }
+
+  .content {
+    padding: 48px 36px;
+  }
+
+  .content div {
+    font-size: 34px;
+  }
+
+  .content p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 200px;
+    max-height: 200px;
+  }
+
+  .content {
+    padding: 36px 24px;
+    max-width: 100%;
+  }
+
+  .content div {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .content p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 200px;
+    max-height: 200px;
+  }
+
+  .content {
+    padding: 28px 20px;
+  }
+
+  .content div {
+    font-size: 22px;
+  }
+
+  .content p {
+    font-size: 13px;
+  }
+}

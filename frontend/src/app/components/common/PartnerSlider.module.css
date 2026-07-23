@@ -1,0 +1,105 @@
+.section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 40px 0;
+  overflow: hidden;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+}
+
+.sliderContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Gradient fade effects on both sides for premium look */
+.sliderContainer::before,
+.sliderContainer::after {
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.sliderContainer::before {
+  left: 0;
+  top: 0;
+  background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.sliderContainer::after {
+  right: 0;
+  top: 0;
+  background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.track {
+  display: flex;
+  gap: 70px; /* Generous gap for premium spacious look */
+  width: max-content;
+  align-items: center;
+  animation: scroll 35s linear infinite; /* Smooth infinite speed */
+}
+
+/* Pause scroll animation on hover */
+.track:hover {
+  animation-play-state: paused;
+}
+
+.logoItem {
+  height: 48px; /* Consistent height for all association logos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* Prevents flexbox from squishing logos to 0px width! */
+}
+
+.logoImage {
+  height: 45px; /* Fixed height for standard display */
+  width: auto;
+  min-width: 60px; /* Safe minimum width fallback */
+  object-fit: contain;
+  opacity: 1; /* Fully colorful and bright by default */
+  transition: transform 0.3s ease;
+}
+
+.logoItem:hover .logoImage {
+  transform: scale(1.05); /* Interactive micro-zoom on hover */
+}
+
+/* Infinite Loop Keyframe Animation */
+@keyframes scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0); /* Moves precisely half the width of the doubled track */
+  }
+}
+
+/* ── Responsive adjustments ── */
+@media (max-width: 768px) {
+  .section {
+    padding: 30px 0;
+  }
+  
+  .logoItem {
+    height: 38px;
+  }
+  
+  .track {
+    gap: 45px;
+  }
+  
+  .sliderContainer::before,
+  .sliderContainer::after {
+    width: 60px;
+  }
+}

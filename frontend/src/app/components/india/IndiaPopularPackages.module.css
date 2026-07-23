@@ -1,0 +1,265 @@
+/* ── Section ── */
+.section {
+  background: var(--color-bg-cream);
+  padding: 64px 0 80px;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── Header ── */
+.header {
+  margin-bottom: 36px;
+}
+
+.headerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.heading {
+  font-size: var(--heading-section);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.viewAll {
+  flex-shrink: 0;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-green);
+  border-radius: var(--radius-pill);
+  padding: 8px 22px;
+  text-decoration: none;
+  transition: background 0.18s ease;
+}
+
+.viewAll:hover {
+  background: var(--color-green-dark);
+}
+
+.subtext {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 760px;
+}
+
+/* ── No-JS fallback grid ── */
+.noscriptGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) { .noscriptGrid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .noscriptGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 400px) { .noscriptGrid { grid-template-columns: 1fr; } }
+
+/* ── Swiper overrides ── */
+.swiper {
+  width: 100%;
+  padding-bottom: 4px !important;
+}
+
+.slide {
+  height: auto;
+}
+
+/* ── Card ── */
+.card {
+  background: #fff;
+  /* border-radius: var(--radius-md); */
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Image ── */
+.imgWrap {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.img {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+}
+
+.card:hover .img {
+  transform: scale(1.05);
+}
+
+/* ── Body ── */
+.body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.starOn  { color: #f5a623; fill: #f5a623; }
+.starOff { color: #ddd;    fill: #ddd;    }
+
+.destinations {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ebebeb;
+  margin: 6px 0 2px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.duration {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.bookBtn {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  border: 1.5px solid #c0c0c0;
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.bookBtn:hover {
+  background: var(--color-green);
+  border-color: var(--color-green);
+  color: #fff;
+}
+
+/* ── Custom pagination dots ── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+/* Swiper injects these classes into .pagination el */
+.pagination :global(.swiper-pagination-bullet) {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c0bdb8;
+  opacity: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.pagination :global(.swiper-pagination-bullet-active) {
+  background: transparent;
+  outline: 2px solid #333;
+  outline-offset: 3px;
+  position: relative;
+}
+
+.pagination :global(.swiper-pagination-bullet-active)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #333;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .inner   { padding: 0 32px; }
+  .imgWrap { height: 260px; }
+}
+
+@media (max-width: 900px) {
+  .inner   { padding: 0 24px; }
+  .imgWrap { height: 240px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 48px 0 64px; }
+  .inner   { padding: 0 20px; }
+  .imgWrap { height: 220px; }
+}
+
+@media (max-width: 576px) {
+  .inner   { padding: 0 16px; }
+  .imgWrap { height: 200px; }
+}

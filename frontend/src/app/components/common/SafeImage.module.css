@@ -1,0 +1,15 @@
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 80px;
+  background: #e8e3d8;
+  color: #a89f8c;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+}

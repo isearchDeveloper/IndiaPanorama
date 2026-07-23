@@ -1,0 +1,56 @@
+/* ── Section ── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.heading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.description {
+  font-size: 16px;
+  color: var(--color-text-primary, #1a1a1a);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Gallery ── */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.galleryImgWrap {
+  position: relative;
+  width: calc(33.333% - 8px);
+  height: 160px;
+}
+
+.galleryImg {
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .galleryImgWrap {
+    width: calc(50% - 6px);
+    height: 130px;
+  }
+}
+
+@media (max-width: 400px) {
+  .galleryImgWrap {
+    width: 100%;
+    height: 180px;
+  }
+}

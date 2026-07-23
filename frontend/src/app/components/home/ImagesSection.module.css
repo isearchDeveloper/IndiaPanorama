@@ -1,0 +1,85 @@
+.section {
+  width: 100%;
+  background-color: #ffffff;
+  /* padding: 10px 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  /* Spans 100% full viewport width to eliminate side margins */
+  margin: 0 auto;
+  padding: 0;
+  /* Remove side padding entirely */
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 680px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bannerImage {
+  object-fit: cover;
+  object-position: center top;
+}
+
+@media (max-width: 991px) {
+  .imageWrapper { height: 500px; }
+}
+
+@media (max-width: 640px) {
+  .imageWrapper { height: 360px; }
+}
+
+.exploreBtn {
+  position: absolute;
+  bottom: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-green-dark);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 14px 44px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 10;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.exploreBtn:hover {
+  background-color: #1e2e14;
+  transform: translateX(-50%) scale(1.03);
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+  .exploreBtn {
+    font-size: 14px;
+    padding: 12px 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .exploreBtn {
+    font-size: 13px;
+    padding: 10px 26px;
+    bottom: 10%;
+  }
+}
+
+@media (max-width: 480px) {
+  .exploreBtn {
+    font-size: 12px;
+    padding: 9px 22px;
+  }
+}

@@ -1,0 +1,142 @@
+.wrapper {
+  width: 100%;
+  padding: 24px 0 0;
+}
+
+.heading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.desc {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+.desc p {
+  margin: 0 0 14px;
+}
+
+.desc p:last-child {
+  margin-bottom: 0;
+}
+
+/* Optional swiper section */
+.swiperSection {
+  margin-top: 28px;
+}
+
+.swiperHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.swiperHeading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.viewAll {
+  background: var(--color-green, #2d6a4f);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: var(--radius-pill, 999px);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.viewAll:hover {
+  opacity: 0.85;
+}
+
+.swiper {
+  width: 100%;
+}
+
+.swiper :global(.swiper-slide) {
+  height: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #f2efea;
+  box-shadow: var(--shadow-md, 0 2px 8px rgba(0, 0, 0, 0.08));
+  height: 100%;
+}
+
+.imgWrap {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.card:hover .img {
+  transform: scale(1.05);
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-align: center;
+  padding: 10px 12px;
+  margin: 0;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* Pagination dots */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #d0d0d0;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dot.active {
+  background: var(--color-primary);
+  transform: scale(1.3);
+}
+
+@media (max-width: 480px) {
+  .heading { font-size: var(--heading-sub); }
+  .swiperHeading { font-size: 18px; }
+}

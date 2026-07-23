@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://projects.isearchsolution.com/sitemap.xml

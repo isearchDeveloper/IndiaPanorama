@@ -1,0 +1,131 @@
+.section {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #fdf1ee 0%, #fdf6e8 100%);
+  padding: 64px 24px;
+}
+
+.inner {
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconWrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #fce4e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  color: var(--color-green);
+  margin: 0 0 8px;
+}
+
+.subheading {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 600;
+  color: var(--color-green);
+  margin: 0 0 20px;
+}
+
+.body {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text-secondary, #555);
+  max-width: 560px;
+  margin: 0 0 32px;
+}
+
+.highlight {
+  color: #c0392b;
+}
+
+.exploreLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary, #555);
+  margin: 0 0 20px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+
+.cardIcon {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-green);
+  margin: 0 0 6px;
+}
+
+.cardText {
+  font-size: 13px;
+  color: var(--color-text-secondary, #666);
+  margin: 0;
+  text-align: center;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 28px;
+  border: 1.5px solid var(--color-green);
+  border-radius: 30px;
+  color: var(--color-green);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.backBtn:hover {
+  background-color: var(--color-green);
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,272 @@
+.bannerSection {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 124px);
+  min-height: 520px;
+  overflow: hidden;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 48px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 1;
+}
+
+/* Social Icons - bottom right */
+.social {
+  position: absolute;
+  bottom: 72px;
+  right: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  z-index: 10;
+  color: #fff;
+}
+
+.followText {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 8px;
+}
+
+.socialIcons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.socialIcons a:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* Subtitle */
+.subtitle {
+  position: relative;
+  z-index: 10;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 1.5px;
+  opacity: 0.92;
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+/* ── Title Bar: ── counter ── TITLE ── arrows ── */
+.titleBar {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0  48px;
+  margin-bottom: 20px;
+}
+
+.counterSection {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0 16px;
+}
+
+.progressLine {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+ 
+}
+
+.title {
+  font-size: clamp(28px, 3.6vw, 48px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  white-space: normal;
+  flex-shrink: 1;
+  min-width: 0;
+  padding: 0 20px;
+  text-align: center;
+  max-width: 700px;
+}
+
+/* Book Now - below title bar */
+.bookBtn {
+  position: relative;
+  z-index: 10;
+  display: inline-block;
+  padding: 11px 40px;
+  border: 2px solid #fff;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.bookBtn:hover {
+  background: #fff;
+  color: #222;
+}
+
+.arrowSection {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 0 16px;
+}
+
+.arrowBtn {
+  background: transparent;
+  
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 50px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.arrowBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #fff;
+}
+
+@media (max-width: 991px) {
+  .title {
+    max-width: 560px;
+  }
+
+  .bottomBar {
+    padding: 16px 24px;
+  }
+
+  .bookBtn {
+    padding: 8px 24px;
+    font-size: 13px;
+    margin: 0 12px;
+  }
+
+  .social {
+    right: 24px;
+    bottom: 76px;
+  }
+}
+
+@media (max-width: 576px) {
+  .slide {
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0;
+    padding-top: 20px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  .titleBar {
+    padding: 0 12px;
+    margin-bottom: 16px;
+    flex-wrap: nowrap;
+  }
+
+  .title {
+    font-size: 22px;
+    max-width: 100%;
+    padding: 0 8px;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.25;
+  }
+
+  .progressLine {
+    flex: 0 0 16px;
+  }
+
+  .counterSection {
+    font-size: 12px;
+    padding: 0 6px;
+    white-space: nowrap;
+  }
+
+  .arrowBtn {
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+  }
+
+  .arrowSection {
+    padding: 0 4px;
+    gap: 2px;
+  }
+
+  .bookBtn {
+    padding: 8px 28px;
+    font-size: 13px;
+  }
+
+  .social {
+    display: none;
+  }
+}

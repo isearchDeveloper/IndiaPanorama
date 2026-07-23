@@ -1,0 +1,64 @@
+.contentLayout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 64px;
+}
+
+.breadcrumb{
+  margin-top: 30px;
+}
+.leftCol {
+  min-width: 0;
+}
+
+/* position: sticky directly on rightCol — exactly like awards page */
+.rightCol {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+  min-width: 0;
+  padding-top: 56px;
+}
+
+@media (max-width: 1200px) {
+  .contentLayout {
+    grid-template-columns: 1fr 280px;
+    padding: 0 32px;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contentLayout {
+    grid-template-columns: 1fr;
+    padding: 0 24px;
+    gap: 0;
+  }
+  .rightCol {
+    position: static;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 0 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contentLayout {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentLayout {
+    padding: 0 16px;
+  }
+  .rightCol {
+    max-width: 100%;
+  }
+}

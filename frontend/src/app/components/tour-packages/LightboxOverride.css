@@ -1,0 +1,24 @@
+/* Move lightbox captions title to bottom */
+.yarl__slide_captions_container {
+  top: auto !important;
+  bottom: 0 !important;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%) !important;
+  padding: 32px 24px 16px !important;
+}
+
+.yarl__slide_title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  color: #fff !important;
+}
+
+/* ── Fixed lightbox image size ──
+   Every image opens in the same box regardless of its natural size:
+   tall/portrait and wide/landscape images all render at one consistent
+   height, cropped to fit (object-fit: cover). min() keeps it responsive. */
+.yarl__slide_image {
+  width: min(1100px, 92vw) !important;
+  height: min(620px, 76vh) !important;
+  object-fit: cover !important;
+}

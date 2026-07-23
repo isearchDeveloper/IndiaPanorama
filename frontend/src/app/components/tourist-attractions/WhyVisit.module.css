@@ -1,0 +1,84 @@
+﻿.section {
+  width: 100%;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 32px;
+  align-items: start;
+  background: #f9f6f1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.imgWrap {
+  position: relative;
+  height: 280px;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.content {
+  padding: 24px 28px 24px 0;
+}
+
+.title {
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 600;
+  color: var(--color-green-dark);
+  margin: 0 0 10px;
+}
+
+.desc {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  line-height: 1.65;
+  margin: 0 0 18px;
+}
+
+.pointsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 24px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.point {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+}
+
+.bullet {
+  color: var(--color-green-dark);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+  .imgWrap {
+    height: 240px;
+  }
+  .content {
+    padding: 20px;
+  }
+}
+

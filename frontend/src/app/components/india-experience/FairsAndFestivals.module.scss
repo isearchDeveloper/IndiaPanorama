@@ -1,0 +1,162 @@
+.section {
+  background: #fff;
+  padding: 56px 0 80px;
+}
+
+/* ── Text content ── */
+.heading {
+  font-size: var(--heading-section);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 20px;
+  line-height: 1.25;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 48px;
+  /* CMS HTML ke liye base typography — system standard (16px / 1.75 / secondary) */
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+.para {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── Slider header ── */
+.sliderHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.sliderHeading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-green);
+  border-radius: var(--radius-pill);
+  padding: 8px 20px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.18s ease;
+}
+
+.viewAll:hover { background: var(--color-green-dark); }
+
+/* ── Swiper ── */
+.swiper {
+  width: 100%;
+  padding-bottom: 4px !important;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.pagination :global(.swiper-pagination-bullet) {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c0bdb8;
+  opacity: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.pagination :global(.swiper-pagination-bullet-active) {
+  background: transparent;
+  outline: 2px solid #1a1a1a;
+  outline-offset: 3px;
+  position: relative;
+}
+
+.pagination :global(.swiper-pagination-bullet-active)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #1a1a1a;
+}
+
+.slide { height: auto; }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  // border-radius: var(--radius-md);
+  overflow: hidden;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.imgWrap {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.img {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+}
+
+.card:hover .img { transform: scale(1.06); }
+
+.cardBody { padding: 12px 14px; background-color: #F4EDE4; }
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  display: block;
+  text-align: center;
+}
+
+
+@media (max-width: 768px) {
+  .section  { padding: 40px 0 64px; }
+  .imgWrap  { height: 170px; }
+  .body     { margin-bottom: 36px; }
+}
+
+@media (max-width: 576px) {
+  .imgWrap { height: 180px; }
+}

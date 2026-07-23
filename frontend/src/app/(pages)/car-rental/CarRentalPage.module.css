@@ -1,0 +1,162 @@
+/* ── Two-column content layout ── */
+.contentLayout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 56px 48px 72px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 18px;
+  align-items: start;
+}
+
+/* ── H1 ── */
+.titleH1 {
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+  margin-top: 10px;
+  max-width: 900px;
+}
+
+/* ── Left column ── */
+.leftCol {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Right column ── */
+.rightCol {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+  min-width: 0;
+}
+
+/* ── Intro paragraph ── */
+.introPara {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── Long description HTML block ── */
+.longDesc {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.longDesc h2,
+.longDesc h3,
+.longDesc h4 {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 24px 0 12px;
+  line-height: 1.3;
+}
+
+.longDesc p {
+  margin: 0 0 16px;
+}
+
+.longDesc ul,
+.longDesc ol {
+  padding-left: 20px;
+  margin: 0 0 16px;
+}
+
+.longDesc li {
+  margin-bottom: 6px;
+}
+
+.longDesc a {
+  color: var(--color-green);
+  text-decoration: underline;
+}
+
+/* ── Divider ── */
+.hrline {
+  border: none;
+  border-top: 1.5px dashed #d6d0c8;
+  margin: 4px 0;
+}
+
+/* ── Checklist ── */
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checklistHeading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 4px;
+  line-height: 1.25;
+}
+
+.checklistItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #2e7d32;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .contentLayout {
+    grid-template-columns: 1fr 280px;
+    padding: 48px 32px 64px;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contentLayout {
+    grid-template-columns: 1fr;
+    padding: 40px 24px 56px;
+    gap: 40px;
+  }
+
+  .rightCol {
+    position: static;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .contentLayout {
+    padding: 32px 20px 48px;
+    gap: 32px;
+  }
+
+  .titleH1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentLayout {
+    padding: 24px 16px 40px;
+  }
+
+  .rightCol {
+    max-width: 100%;
+  }
+}

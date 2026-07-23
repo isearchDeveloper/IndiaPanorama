@@ -1,0 +1,259 @@
+.section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 50px 0;
+  /* Increased padding to give more vertical space and avoid head clipping */
+  overflow: hidden;
+}
+
+/* ── Decorative Images (Absolute inside centered container) ── */
+.leftImage {
+  position: absolute;
+  bottom: 201px;
+  left: -185px; /* Pulled closer to overlap card exactly like original */
+ height: 462px; /* Rescaled to 450px to absolutely prevent top head-clipping */
+  width: auto;
+  z-index: 1;
+  object-fit: contain;
+  pointer-events: none;
+  transform: scaleX(-1); /* Keep her facing towards the form */
+}
+
+.rightImage {
+  position: absolute;
+  bottom: -10px;
+  right: -250px; /* Reverted to perfect previous position */
+  height: 410px; /* Reverted to perfect previous size */
+  width: auto;
+  z-index: 4; /* Reverted to top-overlap z-index */
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Form Card ── */
+.formCard {
+  background-color: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 40px 50px;
+  width: 100%;
+  max-width: 740px;
+  /* Reduced width for a more compact and balanced look */
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 3;
+  /* Keep card above background overlaps */
+}
+
+.heading {
+  font-size: var(--heading-sub);
+  font-weight: 600;
+  font-style: italic;
+  color: #111;
+  margin-bottom: 30px;
+}
+
+/* ── Form Layout ── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.row1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* ── Inputs ── */
+.inputGroup {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #333;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border-color: var(--color-green-dark);
+}
+
+.input::placeholder {
+  color: #6b7280;
+}
+
+select.input {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239CA3AF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px top 50%;
+  background-size: 10px auto;
+  color: #6b7280;
+}
+
+select.input:not([value=""]) {
+  color: #333;
+}
+
+textarea.input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ── Phone Input Special ── */
+.phoneInputWrapper {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.phoneInputWrapper:focus-within {
+  border-color: var(--color-green-dark);
+}
+
+.countryCode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border-right: 1px solid #d1d5db;
+  background-color: #f9fafb;
+}
+
+.countryCode img {
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+}
+
+.countryCode svg {
+  width: 10px;
+  color: #9CA3AF;
+}
+
+.phoneInput {
+  flex: 1;
+  border: none;
+  padding: 14px 16px;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+}
+
+.phoneInput::placeholder {
+  color: #6b7280;
+}
+
+/* ── Submit Button ── */
+.submitWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.submitBtn {
+  background-color: var(--color-green-dark);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submitBtn:hover {
+  background-color: #1e2e14;
+}
+
+.successMsg {
+  width: 100%;
+  text-align: center;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #e6f4ea;
+  color: #2d6a4f;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.errorMsg {
+  width: 100%;
+  text-align: center;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #fdecea;
+  color: #b3261e;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+
+  .leftImage,
+  .rightImage {
+    opacity: 0.3;
+    /* fade background images on smaller screens so form is readable */
+  }
+}
+
+@media (max-width: 768px) {
+
+  .row3,
+  .row2 {
+    grid-template-columns: 1fr;
+    /* stack form fields on mobile */
+  }
+
+  .formCard {
+    padding: 30px 20px;
+  }
+
+  .leftImage {
+    display: none;
+  }
+
+  .rightImage {
+    display: none;
+  }
+}

@@ -1,0 +1,214 @@
+.introPara {
+  font-size: 16px;
+  color: var(--color-text-primary, #1a1a1a);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checklistHeading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 4px;
+}
+
+.checklistItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 16px;
+  color: var(--color-text-primary, #1a1a1a);
+  line-height: 1.6;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Routes Section ── */
+.routesSection { width: 100%; }
+
+.sectionHeading {
+  font-size: clamp(20px, 2vw, 36px);
+  font-weight: 500;
+  color: var(--color-text-primary);
+
+}
+
+.routesTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.routeTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  background: #f4f8f4;
+  border: 1px solid #d4e6d4;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-green-dark);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.routeTag:hover {
+  background: var(--color-green-dark);
+  border-color: var(--color-green-dark);
+  color: #fff;
+}
+
+.routeTagIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Popular Locations (City Cards) ── */
+.locationsSection { width: 100%; }
+
+.locationsDesc {
+  font-size: 16px;
+  color: var(--color-text-primary, #1a1a1a);
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.locationsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.locationCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid #e8ede8;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.locationCard:hover {
+  border-color: var(--color-green-dark);
+  box-shadow: 0 2px 8px rgba(46,125,50,0.1);
+  background: #f4f8f4;
+}
+
+.locationDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-green-dark);
+  flex-shrink: 0;
+}
+
+.locationArrow {
+  margin-left: auto;
+  color: #aaa;
+  font-size: 16px;
+}
+
+/* ── Destinations Section ── */
+.destinationsSection { width: 100%; }
+
+.destGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.destTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.destTag:hover {
+  background: #2e7d32;
+  border-color: #2e7d32;
+  color: #fff;
+}
+
+/* ── Packages Section ── */
+.packagesSection { width: 100%; }
+
+.packagesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.packageCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, #f4f8f4 0%, #eaf2ea 100%);
+  border: 1px solid #c8e0c8;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.packageCard:hover {
+  border-color: var(--color-green-dark);
+  box-shadow: 0 3px 10px rgba(46,125,50,0.12);
+}
+
+.packageLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+}
+
+.packageArrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-green-dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .locationsGrid { grid-template-columns: repeat(2, 1fr); }
+  .packagesGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .locationsGrid { grid-template-columns: 1fr; }
+}

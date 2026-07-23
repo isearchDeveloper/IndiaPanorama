@@ -1,0 +1,129 @@
+﻿.section {
+  background: #f4ede4;
+  padding: 56px 0;
+  width: 100%;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.heading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.viewAll {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-green-dark);
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.viewAll:hover {
+  background: #1b2d11;
+}
+
+.swiper {
+  width: 100%;
+  padding-bottom: 40px !important;
+}
+
+.slide {
+  height: auto;
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s;
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.imgWrap {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  background: #f0ece4;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.card:hover .img {
+  transform: scale(1.04);
+}
+
+.body {
+  padding: 14px 16px;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 6px;
+}
+
+.desc {
+  font-size: 12.5px;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.pagination :global(.swiper-pagination-bullet) {
+  width: 8px;
+  height: 8px;
+  background: #ccc;
+  border-radius: 50%;
+  opacity: 1;
+  transition: all 0.2s;
+}
+
+.pagination :global(.swiper-pagination-bullet-active) {
+  background: var(--color-green-dark);
+  width: 24px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .inner { padding: 0 20px; }
+}
+

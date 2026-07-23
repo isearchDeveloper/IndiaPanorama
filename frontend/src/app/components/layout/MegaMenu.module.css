@@ -1,0 +1,254 @@
+/* ══════════════════════════════════════════════════════
+   MEGA MENU
+   Structure:
+     .megaMenu
+       .inner  (flex row)
+         ul.leftPanel   ← region tabs
+         div.rightArea  ← all panels stacked via CSS grid
+           div.rightPanel (one per region, absolute stack)
+══════════════════════════════════════════════════════ */
+
+/* ── Outer card — 80% width, centered ── */
+.megaMenu {
+  width: 80%;
+  margin: 0 auto;
+  background: #fff;
+  border-top: 3px solid var(--color-primary);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
+  overflow: hidden;
+  max-height: calc(100vh - 360px);
+}
+
+/* ── Inner: left tabs + right content side by side ── */
+.inner {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 360px);
+  overflow: hidden;
+}
+
+/* ══════════════════════
+   LEFT — region tab list
+══════════════════════ */
+.leftPanel {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 12px;
+  width: 210px;
+  flex-shrink: 0;
+  background: #f5f0e8;
+  border-right: 1px solid #ede5d8;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.panelLabelItem { flex-shrink: 0; }
+
+.panelLabel {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: #aaa;
+  padding: 16px 20px 8px;
+}
+
+.regionRow { /* no positioning — normal flow */ }
+
+/* JS active state */
+.regionRowActive > .regionItem {
+  background: #fff;
+  color: var(--color-primary);
+  border-left-color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* CSS :hover fallback (JS-off) */
+.regionRow:hover > .regionItem {
+  background: #fff;
+  color: var(--color-primary);
+  border-left-color: var(--color-primary);
+  font-weight: 700;
+}
+
+.regionItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  white-space: nowrap;
+  transition: background 0.14s, color 0.14s, border-left-color 0.14s;
+}
+
+.arrow {
+  font-size: 15px;
+  color: #ccc;
+  transition: color 0.14s;
+}
+.regionRow:hover > .regionItem .arrow,
+.regionRowActive > .regionItem .arrow {
+  color: var(--color-primary);
+}
+
+/* ══════════════════════
+   RIGHT — stacked panels
+   rightArea is flex:1, position:relative
+   Each rightPanel is absolute inset:0
+   Only active one is visible
+══════════════════════ */
+.rightArea {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* All panels stacked — only active visible */
+.rightPanel {
+  position: absolute;
+  inset: 0;
+  padding: 20px 24px;
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.14s ease, visibility 0.14s;
+}
+
+/* JS active */
+.rightPanelActive {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* JS-off CSS :hover fallback tab switching */
+/* Hide the default active panel if ANY regionRow is hovered */
+.megaMenu:has(.leftPanel > .regionRow:hover) .rightPanelActive {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Show the specific rightPanel that corresponds to the hovered regionRow */
+.megaMenu:has(.leftPanel > .regionRow:nth-child(2):hover) .rightArea > .rightPanel:nth-child(2),
+.megaMenu:has(.leftPanel > .regionRow:nth-child(3):hover) .rightArea > .rightPanel:nth-child(3),
+.megaMenu:has(.leftPanel > .regionRow:nth-child(4):hover) .rightArea > .rightPanel:nth-child(4),
+.megaMenu:has(.leftPanel > .regionRow:nth-child(5):hover) .rightArea > .rightPanel:nth-child(5),
+.megaMenu:has(.leftPanel > .regionRow:nth-child(6):hover) .rightArea > .rightPanel:nth-child(6),
+.megaMenu:has(.leftPanel > .regionRow:nth-child(7):hover) .rightArea > .rightPanel:nth-child(7),
+.megaMenu:has(.leftPanel > .regionRow:nth-child(8):hover) .rightArea > .rightPanel:nth-child(8),
+.megaMenu:has(.leftPanel > .regionRow:nth-child(9):hover) .rightArea > .rightPanel:nth-child(9),
+.megaMenu:has(.leftPanel > .regionRow:nth-child(10):hover) .rightArea > .rightPanel:nth-child(10) {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+/* ── rightArea height = tallest panel content ── */
+/* We set min-height on rightArea via JS-rendered content.
+   Since all panels are absolute, rightArea collapses to 0.
+   Fix: use a hidden "spacer" via the active panel driving height. */
+.rightPanelSpacer {
+  visibility: hidden;
+  pointer-events: none;
+  position: relative;
+  padding: 20px 24px;
+}
+
+.allRegionLink {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+  text-decoration: none;
+  margin-bottom: 16px;
+  transition: color 0.14s;
+}
+.allRegionLink:hover { color: var(--color-primary); }
+
+/* ══════════════════════
+   States grid — masonry-style columns (top-to-bottom flow, grid row-fill karta
+   to lambi city-list ke baad khali gap ban jata tha). Actual column-count JSX
+   se inline aata hai (states.length ke hisab se, max 4) taaki kam-states wale
+   region (jaise North India) me khali column na bache — ye sirf fallback hai.
+══════════════════════ */
+.statesGrid {
+  column-count: 4;
+  column-gap: 32px;
+}
+
+.stateGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  break-inside: avoid;
+  margin-bottom: 16px;
+}
+
+.stateTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+  text-decoration: none;
+  padding-bottom: 5px;
+  border-bottom: 1.5px solid #e0d8cc;
+  display: block;
+  transition: color 0.14s;
+}
+.stateTitle:hover { color: var(--color-primary); }
+
+.cityList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cityLink {
+  font-size: 12.5px;
+  color: #666;
+  text-decoration: none;
+  padding: 2px 0;
+  display: block;
+  transition: color 0.14s, padding-left 0.14s;
+}
+.cityLink:hover {
+  color: var(--color-primary);
+  padding-left: 4px;
+}
+
+.emptyMsg {
+  color: #aaa;
+  font-size: 12.5px;
+  padding: 16px 0;
+}
+
+/* ══════════════════════
+   Responsive
+══════════════════════ */
+@media (max-width: 1400px) {
+  .megaMenu { width: 84%; }
+  .statesGrid { column-gap: 24px; }
+}
+
+@media (max-width: 1200px) {
+  .megaMenu { width: 90%; }
+  .leftPanel { width: 180px; }
+  .statesGrid { column-gap: 18px; }
+}
+
+@media (max-width: 1024px) {
+  .megaMenu { display: none !important; }
+}

@@ -1,0 +1,133 @@
+.bannerSection {
+  width: 100%;
+  position: relative;
+  background-color: #fcfbf7;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.bannerBg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(253, 251, 247, 0.05);
+  z-index: 2;
+}
+
+/* Bottom-text variant — no overlay */
+.overlayBottom {
+  display: none;
+}
+
+/* Bottom-text variant content container */
+.contentContainerBottom {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  height: 100%;
+}
+
+/* Blur pill — wraps only the text block */
+.textBlurPill {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 36px 18px;
+  border-radius: 14px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(253, 251, 247, 0.25);
+}
+
+.contentContainer {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.title {
+  color:white;
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  color: rgb(249, 255, 249);
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 400;
+  margin: 0;
+  max-width: 750px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .bannerSection {
+    height: 260px;
+  }
+
+  .contentContainer {
+    padding: 0 20px;
+    gap: 10px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bannerSection {
+    height: 200px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}

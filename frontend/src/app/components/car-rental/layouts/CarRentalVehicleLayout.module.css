@@ -1,0 +1,228 @@
+/* cream card background — Ertiga design */
+.aboutRow {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 28px;
+  align-items: start;
+  background: #f6efe7;
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.aboutImgWrap {
+  position: relative;
+  width: 100%;
+  height: 260px;
+}
+
+.aboutImg {
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.aboutHeading {
+  font-size: var(--heading-sub);
+  font-weight: 600;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0;
+}
+
+.aboutDesc {
+  font-size: 16px;
+  color: var(--color-text-primary, #1a1a1a);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.aboutDesc p { margin: 0 0 8px; }
+
+/* 2-col label/value highlights with vertical divider (Ertiga design) */
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 0;
+  margin-top: 6px;
+}
+
+.highlightBox {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-right: 20px;
+}
+
+/* right column ke items pe left divider */
+.highlightBox:nth-child(even) {
+  border-left: 1px solid #ddd2c4;
+  padding-left: 20px;
+}
+
+.highlightLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary, #1a1a1a);
+}
+
+.highlightText {
+  font-size: 15px;
+  color: var(--color-text-primary, #1a1a1a);
+  line-height: 1.5;
+}
+
+/* Features */
+.sectionHeading {
+  font-size: var(--heading-sub);
+  font-weight: 500;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0 0 16px;
+}
+
+.featuresSection { width: 100%; }
+
+/* 3-col cards, icon top — design ke hisaab se */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  background: #fff;
+  border: 2px dashed #d5e7d5;
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+
+.featureImg {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.featureLabel {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0 0 2px;
+}
+
+.featureDesc {
+  font-size: 14px;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Specifications */
+.specsSection { width: 100%; }
+
+.specsDesc {
+  font-size: 16px;
+  color: var(--color-text-primary, #1a1a1a);
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+/* checkmark list style — "✅ Label: Value" 2 columns */
+.specsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 48px;
+}
+
+.specItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.specCheck {
+  flex-shrink: 0;
+}
+
+.specText {
+  font-size: 15px;
+  color: var(--color-text-primary, #1a1a1a);
+  line-height: 1.5;
+}
+
+.specLabel {
+  font-weight: 400;
+}
+
+/* Popular Locations */
+.locationsSection { width: 100%; }
+
+.locationsDesc {
+  font-size: 16px;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0 0 16px;
+  line-height: 1.65;
+}
+
+.locationsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.locationCard {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f9fbf9;
+  border: 1px solid #e0ede0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary, #1a1a1a);
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+}
+
+.locationCard:hover {
+  background: var(--color-green-dark, #1e4620);
+  color: #fff;
+}
+
+.locationCard:hover .locationDot { background: #fff; }
+
+.locationDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-green-dark, #1e4620);
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+
+.locationArrow {
+  margin-left: auto;
+  font-size: 16px;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .aboutRow { grid-template-columns: 1fr; padding: 16px; }
+  .aboutImg { height: 200px; }
+  .highlightsGrid { grid-template-columns: 1fr; gap: 12px; }
+  .highlightBox { padding-right: 0; }
+  .highlightBox:nth-child(even) { border-left: none; padding-left: 0; }
+  .featuresGrid { grid-template-columns: 1fr; }
+  .specsGrid { grid-template-columns: 1fr; gap: 12px; }
+  .specsGrid { grid-template-columns: 1fr; }
+  .locationsGrid { grid-template-columns: repeat(2, 1fr); }
+}

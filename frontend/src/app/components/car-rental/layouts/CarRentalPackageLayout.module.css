@@ -1,0 +1,280 @@
+/* ── About Row ── */
+.aboutRow {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.aboutImg {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.aboutHeading {
+  font-size: var(--heading-sub);
+  font-weight: 600;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0;
+}
+
+.aboutDesc {
+  font-size: 16px;
+  color: var(--color-text-primary, #1a1a1a);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Section heading shared ── */
+.sectionHeading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0 0 16px;
+}
+
+/* ── Tour Overview ── */
+.overviewSection { width: 100%; }
+
+.overviewBox {
+  display: flex;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.overviewItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 14px 18px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.overviewItem:last-child { border-right: none; }
+
+.overviewLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-primary, #1a1a1a);
+  text-transform: none;
+}
+
+.overviewVal {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-primary, #1a1a1a);
+}
+
+/* ── Route Highlights grouped ── */
+.highlightsSection { width: 100%; }
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.highlightGroup {
+  background: #fff;
+  border: 1px solid #e8e3d8;
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.highlightGroupHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.highlightGroupName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0;
+}
+
+.attractionList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.attractionItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-text-primary, #1a1a1a);
+  line-height: 1.4;
+}
+
+.attractionDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-green-dark, #1e4620);
+  flex-shrink: 0;
+}
+
+/* ── Features / Amenities ── */
+.amenitiesSection { width: 100%; }
+
+.amenitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.amenityCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1.5px dashed #b5e9c2;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.amenityIcon {
+  color: var(--color-green-dark, #1e4620);
+  line-height: 0;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.amenityImg {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+}
+
+.amenityLabel {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0 0 3px;
+}
+
+.amenityDesc {
+  font-size: 16px;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Popular Routes ── */
+.routesSection { width: 100%; }
+
+.routesTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.routeTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  background: #f4f8f4;
+  border: 1px solid #d4e6d4;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-green-dark, #1e4620);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.routeTag:hover {
+  background: var(--color-green-dark, #1e4620);
+  color: #fff;
+}
+
+/* ── Popular Locations ── */
+.locationsSection { width: 100%; }
+
+.locationsDesc {
+  font-size: 16px;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0 0 16px;
+  line-height: 1.65;
+}
+
+.locationsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.locationCard {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f9fbf9;
+  border: 1px solid #e0ede0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary, #1a1a1a);
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+}
+
+.locationCard:hover {
+  background: var(--color-green-dark, #1e4620);
+  color: #fff;
+}
+
+.locationCard:hover .locationDot { background: #fff; }
+
+.locationDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-green-dark, #1e4620);
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+
+.locationArrow {
+  margin-left: auto;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .highlightsGrid { grid-template-columns: repeat(2, 1fr); }
+  .amenitiesGrid { grid-template-columns: repeat(2, 1fr); }
+  .locationsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .aboutRow { grid-template-columns: 1fr; }
+  .aboutImg { height: 180px; }
+  .overviewBox { flex-wrap: wrap; }
+  .overviewItem { flex: 1 1 45%; border-right: none; border-bottom: 1px solid #e0e0e0; }
+  .highlightsGrid { grid-template-columns: 1fr; }
+  .amenitiesGrid { grid-template-columns: 1fr; }
+  .locationsGrid { grid-template-columns: 1fr 1fr; }
+}

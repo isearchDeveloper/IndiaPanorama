@@ -1,0 +1,187 @@
+/* ── Packages Grid ── */
+.packagesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ── Package Card ── */
+.pkgCard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e8e8e8;
+  background: #fff;
+  text-decoration: none;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.pkgCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.pkgImgWrap {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  overflow: hidden;
+  background: #e5e7eb;
+  flex-shrink: 0;
+}
+
+.pkgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.38s ease;
+}
+
+.pkgImgPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: #e5e7eb;
+}
+
+.pkgCard:hover .pkgImg {
+  transform: scale(1.05);
+}
+
+.pkgTag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #e8a020;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill, 999px);
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.pkgBody {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.pkgTitleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pkgTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.pkgDuration {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: var(--color-green-100, #f0f8f0);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill, 999px);
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+.pkgFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.pkgCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-green, #2F4720);
+  text-decoration: none;
+}
+
+.pkgCta::after {
+  content: "→";
+}
+
+/* ── Section heading ── */
+.sectionHeading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 20px;
+}
+
+/* ── Best Time To Visit ── */
+.bestTimeSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.bestTimeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.bestTimeCard {
+  background: #f5f3ef;
+  border-radius: 12px;
+  padding: 20px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bestTimeIcon {
+  width: 36px;
+  height: 36px;
+  display: block;
+  object-fit: contain;
+}
+
+.bestTimeTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.bestTimeDesc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .packagesGrid {
+    grid-template-columns: 1fr;
+  }
+  .pkgImgWrap {
+    height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .bestTimeGrid {
+    grid-template-columns: 1fr;
+  }
+}

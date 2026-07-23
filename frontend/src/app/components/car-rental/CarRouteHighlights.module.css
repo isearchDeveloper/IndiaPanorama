@@ -1,0 +1,56 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* 2-col grid matching layout screenshot */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff;
+  border: 1.5px dashed var(--color-green, #2f4720);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--color-green, #2f4720);
+  line-height: 0;
+  margin-top: 2px;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+
+.desc {
+  font-size: 13px;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+}

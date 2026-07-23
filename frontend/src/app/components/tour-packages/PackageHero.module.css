@@ -1,0 +1,287 @@
+/* ── Package hero: title + duration badge, image slider left, review card right ── */
+
+.hero {
+  background: #faf8f5;
+  border-bottom: 1px solid #ece8e0;
+  padding: 40px 0 28px;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── Title row ── */
+.headerRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.durationBadge {
+  background: #f6c844;
+  color: var(--color-text-primary);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill, 999px);
+  white-space: nowrap;
+}
+
+.price {
+  margin: 0 0 16px;
+  font-size: 15px;
+  color: var(--color-text-primary);
+}
+
+/* ── Main grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: 2.1fr 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+
+/* Left — image slider */
+.sliderWrap {
+  min-width: 0;
+  position: relative;
+}
+
+/* arrows overlaid on the banner image, one on each side, vertically centered */
+.imageArrowLeft,
+.imageArrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.imageArrowLeft { left: 14px; }
+.imageArrowRight { right: 14px; }
+
+/* image arrows are anchored with translateY(-50%); the generic
+   .arrowBtn:hover lift (translateY(-1px)) must not replace it,
+   otherwise the button jumps down on hover */
+.arrowBtn.imageArrowLeft:hover,
+.arrowBtn.imageArrowRight:hover {
+  transform: translateY(-50%);
+}
+
+.imageSwiper {
+  height: 380px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.imgBtn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+}
+
+.slideImgWrap {
+  position: relative;
+  width: 100%;
+  height: 380px;
+}
+
+.slideImg {
+  object-fit: cover;
+}
+
+/* Right — review card */
+.reviewCol {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.reviewCard {
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+  padding: 26px 24px 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.quoteIcon {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  opacity: 0.9;
+}
+
+.reviewSwiper {
+  width: 100%;
+  flex: 1;
+}
+
+.reviewSlide {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.stars {
+  margin-bottom: 12px;
+}
+
+.star {
+  color: #f5a623;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.reviewText {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  margin: 0 0 18px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  overflow: hidden;
+  flex: 1;
+}
+
+.reviewAuthor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1a3a1c;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.authorName {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+/* Arrows — under the review card, bottom right */
+.arrows {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.arrowBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  font-size: 20px;
+  line-height: 1;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.arrowBtn:hover {
+  background: var(--color-primary, #ff991b);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Description below the grid */
+.desc {
+  margin: 22px 0 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 900px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .inner { padding: 0 32px; }
+  .imageSwiper, .slideImgWrap { height: 330px; }
+}
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: 1fr; }
+  .imageSwiper, .slideImgWrap { height: 300px; }
+  .reviewCard { min-height: 220px; }
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 24px 0 16px; }
+  .inner { padding: 0 20px; }
+  .imageSwiper, .slideImgWrap { height: 220px; }
+  .title { font-size: 22px; }
+  .durationBadge { font-size: 12px; padding: 5px 12px; }
+
+  .arrowBtn {
+    width: 32px;
+    height: 32px;
+    font-size: 17px;
+  }
+  .imageArrowLeft { left: 10px; }
+  .imageArrowRight { right: 10px; }
+
+  .reviewCard { padding: 20px 18px 18px; }
+  .reviewText {
+    font-size: 14px;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+  .avatar { width: 34px; height: 34px; font-size: 14px; }
+  .authorName { font-size: 14px; }
+  .desc { font-size: 14px; }
+}
+
+/* Elfsight Google Reviews widget — static reviewCard ki jagah, image jitni height
+   (imageSwiper 380px) leke column bhar ke, taaki left/right visually balanced ho */
+.elfsightWrap {
+  flex: 1;
+  height: 380px;
+  min-height: 0;
+  overflow-y: auto;
+  border-radius: 14px;
+}
+
+@media (max-width: 1200px) {
+  .elfsightWrap { height: 330px; }
+}
+
+@media (max-width: 1024px) {
+  .elfsightWrap { height: auto; min-height: 300px; }
+}

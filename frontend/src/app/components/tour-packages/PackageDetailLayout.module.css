@@ -1,0 +1,113 @@
+.contentLayout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 48px 72px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 48px;
+  align-items: start;
+}
+
+.leftCol {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.rightCol {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #e8e3d8;
+  margin: 8px 0;
+}
+
+.destDesc {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin: 24px 0 8px;
+}
+
+.destDesc p {
+  margin: 0 0 8px;
+}
+
+.destDesc p:last-child {
+  margin-bottom: 0;
+}
+
+/* About — tour highlights above Destination Covered */
+.aboutBlock {
+  padding: 20px 0 4px;
+}
+
+.aboutHeading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 14px;
+}
+
+.aboutText {
+  font-size: 15px;
+  color: var(--color-text-primary);
+  line-height: 1.85;
+}
+
+.aboutText p {
+  margin: 0 0 10px;
+}
+
+.aboutText p:last-child {
+  margin-bottom: 0;
+}
+
+.highlightsSection {
+  padding: 24px 0 8px;
+}
+
+.sectionHeading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 14px;
+}
+
+.highlightsText {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  line-height: 1.85;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .contentLayout {
+    grid-template-columns: 1fr 280px;
+    padding: 40px 32px 64px;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contentLayout {
+    grid-template-columns: 1fr;
+    padding: 32px 24px 56px;
+    gap: 40px;
+  }
+  .rightCol {
+    position: static;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .contentLayout { padding: 24px 16px 48px; }
+  .rightCol { max-width: 100%; }
+}

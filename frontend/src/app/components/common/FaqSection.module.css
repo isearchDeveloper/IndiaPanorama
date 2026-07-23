@@ -1,0 +1,160 @@
+.section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 56px 48px 72px;
+
+}
+
+.inner {
+  /* max-width: 1350px; */
+  margin: 0 auto;
+  /* padding: 0 48px; */
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 56px;
+  align-items: start;
+}
+
+.innerFull {
+  grid-template-columns: 1fr;
+  /* max-width: 860px; */
+}
+
+/* ── FAQ column ── */
+.faqCol {
+  min-width: 0;
+}
+
+.heading {
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 10px;
+}
+
+.subtext {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin: 0 0 28px;
+}
+
+/* ── Accordion list ── */
+.list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #e0d8cc;
+}
+
+.item {
+  border-bottom: 1px solid #e0d8cc;
+  overflow: hidden;
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  transition: color 0.18s;
+}
+
+.question:hover {
+  color: var(--color-green);
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--color-green);
+}
+
+/* ── Answer panel — CSS-only open/close ── */
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.32s ease;
+}
+
+.itemOpen .answer {
+  max-height: 400px;
+}
+
+.answerText {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  padding: 0 0 16px;
+  margin: 0;
+}
+
+/* ── Side image column ── */
+.imageCol {
+  min-width: 0;
+}
+
+.imgWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.img {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .inner {
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+    padding: 0 32px;
+  }
+
+  .innerFull {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    padding: 0 24px;
+  }
+
+  .imageCol {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 0;
+  }
+
+  .inner {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: 0 16px;
+  }
+
+  .question {
+    font-size: 13.5px;
+  }
+}

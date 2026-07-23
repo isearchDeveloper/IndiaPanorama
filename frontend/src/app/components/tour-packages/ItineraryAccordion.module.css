@@ -1,0 +1,139 @@
+.section {
+  padding: 36px 0 8px;
+}
+
+.heading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  /* border: 1px solid #ddd8ce; */
+}
+
+/* ── Each row ── */
+.item {
+  border-bottom: 1px dashed #aaa;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+/* ── Trigger button ── */
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.trigger:hover {
+  background: #fff;
+}
+
+.open .trigger {
+  background: #fff;
+}
+
+/* ── Day badge ── */
+.dayBadge {
+  flex-shrink: 0;
+  background: #e8a020;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+/* ── Day title ── */
+.dayTitle {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+}
+
+/* ── Chevron ── */
+.chevron {
+  flex-shrink: 0;
+  color: #999;
+  transition: transform 0.3s ease;
+}
+
+.open .chevron {
+  transform: rotate(180deg);
+}
+
+/* ── Animated body wrapper ── */
+.bodyWrap {
+  overflow: hidden;
+  transition: height 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Inner body ── */
+.body {
+  padding: 4px 22px 24px 22px;
+  background: #fff;
+}
+
+/* noscript — body visible without JS wrapper */
+noscript .body {
+  display: block;
+}
+
+.desc {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.85;
+  margin: 0;
+  padding-left: 96px;
+}
+
+.desc p {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.85;
+}
+
+.desc p:last-child {
+  margin-bottom: 0;
+}
+
+.desc ul,
+.desc ol {
+  margin: 8px 0 8px 20px;
+  padding: 0;
+}
+
+.desc li {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+  .trigger { gap: 12px; padding: 16px; }
+  .body { padding: 4px 16px 16px; }
+  .desc { padding-left: 0; }
+  .desc p { font-size: 15px; }
+  .dayTitle { font-size: 14px; }
+}

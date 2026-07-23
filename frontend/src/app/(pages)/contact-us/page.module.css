@@ -1,0 +1,13 @@
+/* Breadcrumb ko site ke standard container me lane ke liye —
+   baaki pages pe ye pageLayout ke andar hota hai, yahan standalone tha */
+.crumbWrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 48px 0;
+}
+
+@media (max-width: 768px) {
+  .crumbWrap {
+    padding: 16px 20px 0;
+  }
+}

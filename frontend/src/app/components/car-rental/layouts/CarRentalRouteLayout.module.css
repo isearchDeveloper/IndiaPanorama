@@ -1,0 +1,226 @@
+/* About section: image left, content right */
+.aboutRow {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.aboutImg {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.aboutHeading {
+  font-size: var(--heading-sub);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.aboutDesc {
+  font-size: 16px;
+  color: var(--color-text-primary, #1a1a1a);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.aboutDesc p {
+  margin: 0 0 8px;
+}
+
+/* Trip stats */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: #f4f8f4;
+  border: 1px solid #d4e6d4;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.statLabel {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-green-dark);
+}
+
+.statVal {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+/* Section heading shared */
+.sectionHeading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 18px;
+}
+
+/* Route Highlights */
+.highlightsSection { width: 100%; }
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.highlightCard {
+  background: #fff;
+  border: 1.5px dashed #d0d0d0;
+  border-radius: 10px;
+  padding: 20px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.highlightIcon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.highlightTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0;
+}
+
+.highlightDesc {
+  font-size: 14px;
+  color: var(--color-text-primary, #1a1a1a);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Popular Routes tags */
+.routesSection { width: 100%; }
+
+.routesTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.routeTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  background: #f4f8f4;
+  border: 1px solid #d4e6d4;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-green-dark);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.routeTag:hover {
+  background: var(--color-green-dark);
+  color: #fff;
+}
+
+/* Popular Locations */
+.locationsSection { width: 100%; }
+
+.locationsDesc {
+  font-size: 16px;
+  color: var(--color-text-primary, #1a1a1a);
+  margin: 0 0 16px;
+  line-height: 1.65;
+}
+
+.locationsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.locationCard {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f9fbf9;
+  border: 1px solid #e0ede0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+}
+
+.locationCard:hover {
+  background: var(--color-green-dark);
+  color: #fff;
+}
+
+.locationCard:hover .locationDot {
+  background: #fff;
+}
+
+.locationDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-green-dark);
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+
+.locationArrow {
+  margin-left: auto;
+  font-size: 16px;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .aboutRow {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutImg {
+    height: 200px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .locationsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

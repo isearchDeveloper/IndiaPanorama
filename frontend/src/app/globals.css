@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+:root {
+  /* ── Brand Colors ── */
+  --color-primary:        #FF991B;
+  --color-primary-hover:  #e5860f;
+  --color-green:          #1a3a1c;
+  --color-green-dark:     #2F4720;
+  --color-green-footer:   #103417;
+  --color-blue:           #1B3B6F;
+  --color-white:          #ffffff;
+  --color-black:          #000000;
+  --color-gray:           #6c757d;
+  --color-light-gray:     #f8f9fa;
+
+  /* ── Background Colors ── */
+  --color-bg:             #f9f6f1;
+  --color-bg-cream:       #f9f6f1;
+  --color-bg-beige:       #f0ece3;
+  --color-bg-card:        #fdfaf5;
+
+  /* ── Border Colors ── */
+  --color-border:         #e8e0d0;
+  --color-border-dashed:  #c8bfa8;
+
+  /* ── Shadows ── */
+  --shadow-sm:  0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md:  0 6px 28px rgba(0, 0, 0, 0.08);
+  --shadow-lg:  0 16px 48px rgba(0, 0, 0, 0.14);
+
+  /* ── Border Radius ── */
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-pill: 50px;
+
+  /* ── Text Colors ── */
+  --color-text-primary:   #1a1a1a;
+  --color-text-secondary: #555555;
+  --color-text-muted:     #888888;
+  --color-text-heading:   #1a3a1c;
+
+  /* ── Font Families ── */
+  --font-heading: var(--font-outfit), 'Outfit', sans-serif;
+  --font-body:    var(--font-inter),  'Inter',  sans-serif;
+  --font-main:    var(--font-inter),  'Inter',  sans-serif;
+
+  /* ── Type Scale (clamp: mobile → desktop) ── */
+  --text-xs:   clamp(0.688rem, 0.9vw,  0.75rem);   /* 11–12px   labels, chips       */
+  --text-sm:   clamp(0.75rem,  1vw,    0.844rem);   /* 12–13.5px captions, meta      */
+  --text-base: clamp(0.844rem, 1.1vw,  0.938rem);   /* 13.5–15px body text           */
+  --text-md:   clamp(0.938rem, 1.3vw,  1.063rem);   /* 15–17px   card titles         */
+  --text-lg:   clamp(1.063rem, 1.5vw,  1.25rem);    /* 17–20px   section labels      */
+  --text-xl:   clamp(1.25rem,  1.8vw,  1.5rem);     /* 20–24px   subheadings         */
+  --text-2xl:  clamp(1.5rem,   2.2vw,  1.75rem);    /* 24–28px   section titles      */
+  --text-3xl:  clamp(1.75rem,  2.8vw,  2.125rem);   /* 28–34px   page headings       */
+  --text-4xl:  clamp(2.125rem, 3.5vw,  2.625rem);   /* 34–42px   hero headings       */
+  --text-5xl:  clamp(2.5rem,   4.5vw,  3.5rem);     /* 40–56px   large hero          */
+
+  /* ── Section heading standards (H2 consolidation — 2026-07-10) ──
+     Pehle 25+ alag values thin; ab section-level headings sirf ye 2 use karte hain */
+  --heading-section: clamp(20px, 2.2vw, 30px);      /* main section H2 (dominant 30px cluster) */
+  --heading-sub:     clamp(18px, 2vw, 24px);        /* chhoti section headings (existing smallest variant) */
+
+  /* ── Line Heights ── */
+  --leading-tight:   1.2;
+  --leading-snug:    1.35;
+  --leading-normal:  1.6;
+  --leading-relaxed: 1.8;
+
+  /* ── Font Weights ── */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: auto;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  background: var(--color-white);
+  height: auto;
+  min-height: 100vh;
+}
+
+/* Hide Google Translate top bar */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame,
+.skiptranslate,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-aZ2wEe { display: none !important; visibility: hidden !important; }
+body { top: 0 !important; position: static !important; }
+html body { top: 0 !important; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+}
+
+p {
+  font-family: var(--font-body);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+}
+
+/* ── No-JS fallback grid — used inside <noscript> tags ── */
+.noscript-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 16px 0;
+}
+.noscript-grid-2 { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.noscript-grid-3 { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+/* ── Swiper dynamic bullets (max ~5 dots site-wide) ──
+   Swiper positions dynamic bullets itself with an inline width + transforms.
+   EXTERNAL module containers (they lack swiper's own .swiper-pagination class)
+   may have flex/gap that breaks that math — neutralise only those and center them.
+   Internal pagination (.swiper-pagination inside the slider) keeps swiper's own
+   absolute positioning untouched. */
+.swiper-pagination-bullets-dynamic:not(.swiper-pagination) {
+  display: block !important;
+  margin: 14px auto 0 !important;
+  gap: 0 !important;
+  text-align: center;
+  position: relative;
+}
+.swiper-pagination-bullet {
+  background: #1a1a1a;
+}
+.swiper-pagination-bullet-active {
+  background: var(--color-primary, #ff991b);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   CMS CONTENT (dangerouslySetInnerHTML) — unified typography
+   ────────────────────────────────────────────────────────────────────
+   Font-size / color / line-height WRAPPER class se inherit hote hain
+   (har section apna scale rakhta hai — existing system intact).
+   Ye class sirf CMS se aane wale TAGS ka structure standardize karti
+   hai: p margins, lists, heading proportions, strong, links, tables,
+   images — taaki backend jo bhi HTML bheje, design system me hi dikhe.
+   Headings em-based hain — wrapper ke font-size ke saath scale hoti hain.
+   ════════════════════════════════════════════════════════════════════ */
+
+.cms-content { min-width: 0; }
+
+.cms-content p {
+  margin: 0 0 0.9em;
+}
+.cms-content p:last-child { margin-bottom: 0; }
+
+.cms-content h1,
+.cms-content h2,
+.cms-content h3,
+.cms-content h4,
+.cms-content h5,
+.cms-content h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+  margin: 1.2em 0 0.5em;
+}
+.cms-content h1:first-child,
+.cms-content h2:first-child,
+.cms-content h3:first-child,
+.cms-content h4:first-child,
+.cms-content h5:first-child,
+.cms-content h6:first-child { margin-top: 0; }
+.cms-content h1, .cms-content h2 { font-size: 1.4em; }  /* CMS h1 ko visually h2 treat karo — page ka h1 ek hi rehta hai (SEO) */
+.cms-content h3 { font-size: 1.25em; }
+.cms-content h4 { font-size: 1.1em; }
+.cms-content h5, .cms-content h6 { font-size: 1em; }
+
+.cms-content ul,
+.cms-content ol {
+  margin: 0 0 0.9em;
+  padding-left: 20px;
+}
+.cms-content ul { list-style: disc; }
+.cms-content ol { list-style: decimal; }
+.cms-content li { margin: 0 0 0.4em; }
+.cms-content li:last-child { margin-bottom: 0; }
+
+.cms-content strong,
+.cms-content b {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+.cms-content em, .cms-content i { font-style: italic; }
+
+.cms-content a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cms-content a:hover { color: var(--color-primary-hover); }
+
+.cms-content blockquote {
+  margin: 0 0 0.9em;
+  padding: 10px 16px;
+  border-left: 3px solid var(--color-primary);
+  background: var(--color-bg-cream);
+  border-radius: 0 8px 8px 0;
+}
+
+.cms-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0.6em 0;
+}
+.cms-content figure { margin: 0.6em 0; }
+.cms-content figcaption {
+  font-size: 0.85em;
+  color: var(--color-text-muted, #777);
+  margin-top: 4px;
+}
+
+.cms-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 0.9em;
+  font-size: 0.95em;
+  display: block;
+  overflow-x: auto;   /* mobile pe table apne andar scroll kare, page na fate */
+}
+.cms-content th,
+.cms-content td {
+  border: 1px solid var(--color-border);
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+.cms-content th {
+  background: var(--color-bg-beige);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.cms-content pre {
+  background: var(--color-bg-beige);
+  padding: 12px 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0 0 0.9em;
+  font-size: 0.9em;
+}
+.cms-content code {
+  background: var(--color-bg-beige);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.cms-content hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 1.2em 0;
+}
+
+/* ── Shared intro/body-text class — ReadMoreHtml callers ka canonical style ──
+   (16px / 1.75 / secondary — project ka dominant body-text standard)
+   Margin/extra spacing caller ki module class me hi rehta hai. */
+.cms-intro {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}

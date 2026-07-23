@@ -1,0 +1,161 @@
+/* ── AboutUs Section ── */
+.section {
+  position: relative;
+  width: 100%;
+  background-color: #fafafa;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  gap: 80px;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 500px; /* Space for the background image at the bottom */
+}
+
+/* ── Left Column ── */
+.leftColumn {
+  flex: 1;
+  max-width: 550px;
+}
+
+.heading {
+  font-size: var(--heading-section);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+  margin: 0 0 20px;
+}
+
+.paragraph {
+  font-size: 18px;
+  color: #374151; /* Darker for better visibility */
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+.boldText {
+  font-weight: 600;
+  color: #111827;
+}
+
+.bookBtn {
+  display: inline-block;
+  background-color: var(--color-green-dark);
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.bookBtn:hover {
+  background-color: #1b2d11;
+}
+
+/* ── Right Column ── */
+.rightColumn {
+  flex: 1;
+}
+
+.topText {
+  font-size: 16px;
+  color: #374151; /* Darker for better visibility */
+  line-height: 1.7;
+  margin: 0 0 32px;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.featureItem {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.featureIcon {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  color: var(--color-green-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.featureContent {
+  flex: 1;
+}
+
+.featureTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-green-dark); /* Green title color */
+  margin: 0 0 4px;
+}
+
+.featureDesc {
+  font-size: 16px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Background Image ── */
+.bgImage {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+  .container {
+    flex-direction: column;
+    gap: 48px;
+    padding-bottom: 280px;
+  }
+  
+  .leftColumn, .rightColumn {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+    padding-bottom: 240px;
+  }
+  
+  .heading {
+    font-size: var(--heading-section);
+  }
+  
+  .bgImage {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bgImage {
+    height: 200px;
+  }
+}

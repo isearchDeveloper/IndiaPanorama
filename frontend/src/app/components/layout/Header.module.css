@@ -1,0 +1,713 @@
+/* ═══════════════════════════════════════════════════════════
+   HEADER.MODULE.CSS  —  Indian Panorama
+   Clean rewrite — no leftover CSS hover / bridge hacks
+═══════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════
+   HEADER SHELL
+══════════════════════════════════ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ══════════════════════════════════
+   TOP BAR
+══════════════════════════════════ */
+.topBar {
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+  /* desktop: hide on any scroll via CSS scroll timeline */
+  animation: hideTopBar linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0px 1px;
+}
+
+@keyframes hideTopBar {
+  from { max-height: 120px; opacity: 1; }
+  to   { max-height: 0; opacity: 0; border-bottom: none; }
+}
+
+/* mobile/tablet: disable scroll animation on topBar — just keep it visible */
+@media (max-width: 1023px) {
+  .topBar {
+    animation: none;
+    max-height: none;
+    opacity: 1;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+.topBarHidden {
+  max-height: 0 !important;
+  opacity: 0 !important;
+  border-bottom: none !important;
+}
+
+.topBarInner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 48px;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: 96px;
+}
+
+/* Left */
+.leftInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 100px;
+}
+
+.tripAdvisor {
+  flex-shrink: 0;
+  object-fit: contain;
+  width: 106px !important;
+  height: auto !important;
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+.contactLink:hover { color: var(--color-primary); }
+
+/* Center — Logo */
+.logoWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.logoLink {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.logoImg {
+  display: block;
+  width: 580px;
+  height: 86px;
+  background-image: url('/images/indian-panorama-logo original.webp');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.logoImgSm {
+  display: block;
+  width: 140px;
+  height: 38px;
+  background-image: url('/images/indian-panorama-logo original.webp');
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+/* Right */
+.rightActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.phoneLink {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2c2c2c;
+  text-decoration: none;
+  transition: color 0.18s;
+  white-space: nowrap;
+}
+.phoneLink:hover {
+  color: var(--color-primary);
+}
+
+.desktopOnly {
+  display: contents;
+}
+
+.langBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s;
+}
+.langBtn:hover {
+  border-color: var(--color-green);
+  color: var(--color-green);
+}
+
+.contactBtn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-green);
+  color: #fff;
+  padding: 9px 22px;
+  border-radius: 22px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.18s;
+}
+.contactBtn:hover {
+  background: #122a1b;
+  color: #fff;
+}
+
+.hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 7px;
+  cursor: pointer;
+  color: #333;
+  line-height: 0;
+  transition: border-color 0.18s, color 0.18s;
+}
+.hamburger:hover {
+  border-color: var(--color-green);
+  color: var(--color-green);
+}
+
+/* ══════════════════════════════════
+   DESKTOP NAVBAR
+══════════════════════════════════ */
+.navbar {
+  background: #fff;
+  border-top: 1px solid #f0f0f0;
+  position: relative;
+  z-index: 100;
+}
+
+.navInner {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.navList {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+/* navItem = full navbar height as hover zone */
+.navItem {
+  position: static;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 18px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #2c2c2c;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.18s;
+  border-bottom: 2px solid transparent;
+}
+.navLink:hover,
+.navLinkActive {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  color: #888;
+}
+.chevronOpen {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+
+/* ══════════════════════════════════
+   MEGA MENU WRAPPER
+   - position: absolute → relative to .navbar
+   - top: 100% → starts exactly at navbar bottom
+   - left/right: 0 → full navbar width
+   - JS adds .megaMenuWrapOpen for enhanced UX
+   - CSS :hover on .navItem works as JS-off fallback
+══════════════════════════════════ */
+@keyframes megaFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hidden by default — display:none means zero pointer events, no ghost clicks */
+.megaMenuWrap {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* JS open — shown by JS adding this class */
+.megaMenuWrapOpen {
+  display: block;
+  animation: megaFadeIn 0.18s ease forwards;
+}
+
+/* CSS :hover fallback for JS-off / SEO — navItem hover shows its wrap sibling */
+/* navInner > ul > li[data-nav-id] hover → navInner's parent (navbar) contains wrap */
+/* We use :has() on navbar to detect the hovered navItem and show matching wrap */
+.navbar:has([data-nav-id="1"]:hover) [data-wrap-id="1"],
+.navbar:has([data-nav-id="2"]:hover) [data-wrap-id="2"],
+.navbar:has([data-nav-id="3"]:hover) [data-wrap-id="3"],
+.navbar:has([data-nav-id="4"]:hover) [data-wrap-id="4"],
+.navbar:has([data-nav-id="5"]:hover) [data-wrap-id="5"],
+.navbar:has([data-nav-id="6"]:hover) [data-wrap-id="6"],
+.navbar:has([data-nav-id="7"]:hover) [data-wrap-id="7"],
+.navbar:has([data-nav-id="8"]:hover) [data-wrap-id="8"],
+/* keep open while cursor moves from navItem into the wrap */
+.navbar:has([data-nav-id="1"]:hover) [data-wrap-id="1"]:hover,
+.navbar:has([data-nav-id="2"]:hover) [data-wrap-id="2"]:hover,
+.navbar:has([data-nav-id="3"]:hover) [data-wrap-id="3"]:hover,
+.navbar:has([data-nav-id="4"]:hover) [data-wrap-id="4"]:hover,
+.navbar:has([data-nav-id="5"]:hover) [data-wrap-id="5"]:hover,
+.navbar:has([data-nav-id="6"]:hover) [data-wrap-id="6"]:hover,
+.navbar:has([data-nav-id="7"]:hover) [data-wrap-id="7"]:hover,
+.navbar:has([data-nav-id="8"]:hover) [data-wrap-id="8"]:hover,
+[data-wrap-id="1"]:hover,
+[data-wrap-id="2"]:hover,
+[data-wrap-id="3"]:hover,
+[data-wrap-id="4"]:hover,
+[data-wrap-id="5"]:hover,
+[data-wrap-id="6"]:hover,
+[data-wrap-id="7"]:hover,
+[data-wrap-id="8"]:hover {
+  display: block;
+}
+
+/* Only the inner card gets pointer events — side gutters stay dead */
+.megaMenuWrapOpen > div,
+[data-wrap-id]:hover > div {
+  pointer-events: auto;
+}
+
+/* ══════════════════════════════════
+   MOBILE OVERLAY + DRAWER
+══════════════════════════════════ */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99999;   /* above everything — megaMenuWrap, sticky header */
+  display: flex;
+  justify-content: flex-end;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0.7; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+.drawer {
+  background: #fff;
+  width: 300px;
+  max-width: 88vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  animation: slideInRight 0.24s ease;
+  box-shadow: -4px 0 28px rgba(0, 0, 0, 0.14);
+}
+
+.drawerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid #eee;
+  min-height: 60px;
+  flex-shrink: 0;
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 7px;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  line-height: 0;
+  transition: all 0.18s;
+  flex-shrink: 0;
+}
+.closeBtn:hover { border-color: #333; color: #111; }
+
+.drawerNav {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  flex: 1;
+}
+
+.drawerNavLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 13px 20px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #222;
+  text-decoration: none;
+  border: none;
+  border-bottom: 1px solid #f2f2f2;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.15s, background 0.15s, padding-left 0.15s;
+}
+.drawerNavLink:hover {
+  color: var(--color-primary);
+  background: #fdfaf6;
+  padding-left: 26px;
+}
+
+/* ── Mobile Accordion ── */
+.mobileAccordion {
+  background: var(--color-bg-cream);
+  border-radius: 8px;
+  margin: 4px 12px 8px;
+  overflow: hidden;
+}
+
+.mobileRegionTabs {
+  display: flex;
+  gap: 6px;
+  padding: 10px 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid var(--color-border);
+}
+.mobileRegionTabs::-webkit-scrollbar { display: none; }
+
+.mobileRegionTab {
+  flex-shrink: 0;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid #d0c8bc;
+  background: #fff;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.mobileRegionTabActive {
+  background: var(--color-green);
+  border-color: var(--color-green);
+  color: #fff;
+}
+
+.mobileStates {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobileStateGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mobileStateTitle {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-green);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #e0d8cc;
+  display: block;
+}
+
+.mobileCities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 8px;
+}
+
+.mobileCityLink {
+  font-size: 11.5px;
+  color: #666;
+  text-decoration: none;
+  padding: 3px 9px;
+  background: #fff;
+  border-radius: var(--radius-pill);
+  border: 1px solid #e0d8cc;
+  transition: all 0.15s;
+}
+.mobileCityLink:hover,
+.mobileCityLink:active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+/* ── Drawer translate section ── */
+.drawerTranslate {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Drawer footer ── */
+.drawerContact {
+  padding: 16px 20px;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.drawerContactItem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+.drawerContactItem:hover { color: var(--color-primary); }
+
+.drawerCta {
+  padding: 0 20px 24px;
+  flex-shrink: 0;
+}
+
+.drawerCtaBtn {
+  display: block;
+  text-align: center;
+  background: var(--color-green);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.18s;
+}
+.drawerCtaBtn:hover { background: #122a1b; color: #fff; }
+
+/* ══════════════════════════════════
+   RESPONSIVE — TABLET ≤ 1024px
+   Layout: [hamburger] [  Logo  ] [ ]
+══════════════════════════════════ */
+@media (max-width: 1024px) {
+  .topBarInner {
+    grid-template-columns: 1fr auto 1fr;
+    height: 64px;
+    padding: 0 16px;
+  }
+
+  /* Hide desktop-only elements */
+  .navbar      { display: none; }
+  .leftInfo    { display: none; }
+  .langBtn     { display: none; }
+  .contactBtn  { display: none; }
+  .desktopOnly { display: none; }
+  .phoneLink   { display: none; }
+
+  /* Completely remove mega menu wrappers from touch event chain */
+  .megaMenuWrap { display: none !important; }
+
+  /* Logo — stays center column */
+  .logoWrap {
+    grid-column: 2;
+    justify-content: center;
+  }
+  .logoImg {
+    width: 180px;
+    height: 48px;
+  }
+
+  /* rightActions — stays col 3, shows hamburger */
+  .rightActions {
+    grid-column: 3;
+    justify-content: flex-end;
+  }
+  .hamburger {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 8px;
+    border: 1.5px solid #e0e0e0;
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    pointer-events: auto;  /* ensure touch events always reach button */
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.18s, border-color 0.18s, color 0.18s;
+  }
+  .hamburger:hover,
+  .hamburger:active {
+    background: #f0f0f0;
+    border-color: var(--color-green);
+    color: var(--color-green);
+  }
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE — MOBILE ≤ 640px
+══════════════════════════════════ */
+@media (max-width: 640px) {
+  .topBarInner {
+    padding: 0 12px;
+    height: 58px;
+  }
+  .logoImg {
+    width: 150px;
+    height: 42px;
+  }
+  .hamburger {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE — SMALL MOBILE ≤ 375px
+══════════════════════════════════ */
+@media (max-width: 375px) {
+  .topBarInner {
+    padding: 0 10px;
+    height: 54px;
+  }
+  .logoImg {
+    width: 130px;
+    height: 36px;
+  }
+}
+
+/* ══════════════════════════════════
+   SMALL DROPDOWN FOR "MORE" MENU
+   ══════════════════════════════════ */
+.hasDropdown {
+  position: relative !important;
+}
+
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  min-width: 180px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  z-index: 1000;
+  border: 1px solid #eee;
+}
+
+.dropdownMenuOpen {
+  display: block;
+  animation: megaFadeIn 0.18s ease forwards;
+}
+
+.dropdownItem {
+  width: 100%;
+}
+
+.dropdownLink {
+  display: block;
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.dropdownLink:hover {
+  background: #fdfaf6;
+  color: var(--color-primary);
+}
+
+/* Mobile accordion dropdown */
+.mobileNormalDropdown {
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  padding: 4px 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.mobileDropdownLink {
+  display: block;
+  padding: 10px 32px;
+  font-size: 13.5px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+
+.mobileDropdownLink:hover,
+.mobileDropdownLink:active {
+  color: var(--color-primary);
+  background: #fdfaf6;
+}

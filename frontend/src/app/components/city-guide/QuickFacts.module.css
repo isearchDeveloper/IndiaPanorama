@@ -1,0 +1,45 @@
+.section {
+  margin-top: 10px;
+}
+
+.heading {
+  margin-bottom: 24px;
+  font-size: var(--heading-section);
+  font-weight: 300;
+  color: #1f2937;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  padding: 15px;
+ background: #F4EDE4;
+
+  border: 1px solid #e7dfd3;
+  border-radius: 12px;
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 500;
+ color: #2F4720;
+;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: black;
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

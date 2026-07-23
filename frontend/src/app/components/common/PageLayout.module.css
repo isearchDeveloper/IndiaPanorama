@@ -1,0 +1,99 @@
+/* ── Outer wrapper — light cream bg, full width ── */
+.outer {
+  background: var(--color-bg-cream, #faf8f5);
+  width: 100%;
+}
+
+/* ── Inner container — max-width + padding ── */
+.container,
+.containerFull {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 48px 72px;
+}
+
+/* ── Breadcrumb sits at the very top, then gap before content ── */
+/* Breadcrumb component renders directly, gap is handled below */
+
+/* ── Two-col: main content + sticky sidebar ── */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 48px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+/* ── One-col: full width, no sidebar ── */
+.oneCol {
+  margin-top: 20px;
+}
+
+.main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sidebar {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+  min-width: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .container,
+  .containerFull {
+    padding: 28px 40px 64px;
+  }
+
+  .twoCol {
+    grid-template-columns: 1fr 280px;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container,
+  .containerFull {
+    padding: 24px 32px 56px;
+  }
+
+  .twoCol {
+    grid-template-columns: 1fr 260px;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 900px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container,
+  .containerFull {
+    padding: 20px 24px 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .containerFull {
+    padding: 16px 16px 40px;
+  }
+
+  .sidebar {
+    max-width: 100%;
+  }
+}

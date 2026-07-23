@@ -1,0 +1,80 @@
+.wrap {
+  position: relative;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid #d0ccc4;
+  border-radius: 6px;
+  color: var(--color-text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.btn:hover {
+  border-color: #aaa;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  transition: transform 0.2s;
+}
+
+/* ── Dropdown — fixed so it always renders above everything ── */
+.dropdown {
+  position: fixed;
+  background: #fff;
+  border: 1px solid #e0dbd2;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  min-width: 210px;
+  z-index: 999999;
+  isolation: isolate;
+}
+
+/* ── Each row ── */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.option:hover { background: #f5f2ed; }
+
+.optionActive {
+  background: #f0ece4;
+}
+
+.optionActive .langLabel {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* ── Flag image ── */
+.flagImg {
+  flex-shrink: 0;
+  border-radius: 2px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Language name ── */
+.langLabel {
+  font-size: 13px;
+  color: #2a2a2a;
+  line-height: 1.3;
+}
