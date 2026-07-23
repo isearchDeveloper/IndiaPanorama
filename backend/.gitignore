@@ -1,0 +1,18 @@
+/vendor/
+node_modules/
+
+.env
+.env.*
+
+# Laravel storage (ignore everything except .gitignore)
+storage/*
+!storage/.gitignore
+
+# Logs & cache
+bootstrap/cache/*
+!bootstrap/cache/.gitignore
+
+public/storage
+
+*.zip
+.phpunit.result.cache
